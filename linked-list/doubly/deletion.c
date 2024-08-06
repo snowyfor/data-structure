@@ -65,7 +65,7 @@ struct Node *deleteFromEnd2(struct Node *head) {  //(cara 2)
     last->prev->next = NULL;  //buat last node jadi NULL
     free(last);
 
-    return head
+    return head;
 }
 struct Node *deleteFromFront2(struct Node *head) {  //(cara 2)
     if(head == NULL) return NULL;
