@@ -17,6 +17,39 @@ struct Node *createNode(int data) {
     return newNode;
 };
 
+// Menampilkan data dalam linked list(dari depan)
+struct Node *printFromFront(struct Node *head) {
+    struct Node *current = head;
+
+    if(current->prev != NULL) {  //jika current bukan first node, maka geser sampai first node
+        while(current->prev != NULL) {
+            current = current->prev;
+        }
+    }
+
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->next;
+    }
+    printf("\n");
+}
+// Menampilkan data dalam linked list(dari belakang)
+struct Node *printFromEnd(struct Node *head) {
+    struct Node *current = head;
+
+    if(current->next != NULL) {  //jika current bukan last node, maka geser sampai last node
+        while(current->next != NULL) {
+            current = current->next;
+        }
+    }
+
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->prev;
+    }
+    printf("\n");
+}
+
 int main() {
     // Membuat beberapa node
     struct Node *node1 = createNode(1);
@@ -29,21 +62,10 @@ int main() {
     node2->next = node3;
     node3->prev = node2;
 
-    // Menampilkan data dalam linked list(dari depan)
-    struct Node *current = node1;
-    while (current != NULL) {
-        printf("%d ", current->data);
-        current = current->next;
-    }
+    struct Node *head = node1;
+    printFromEnd(head);
+    printFromFront(head);
 
-    printf("\n");
-
-    // Menampilkan data dalam linked list(dari belakang)
-    struct Node *curr = node3;
-    while (curr != NULL) {
-        printf("%d ", curr->data);
-        curr = curr->prev;
-    }
 
     // Mengeluarkan memori yang digunakan oleh node
     free(node1);

@@ -13,6 +13,36 @@ struct Node *createNode(int data) {
     newNode->next = NULL;
     return newNode;
 };
+struct Node *printFromFront(struct Node *head) {
+    struct Node *current = head;
+
+    if(current->prev != NULL) {  //jika current bukan first node, maka geser sampai first node
+        while(current->prev != NULL) {
+            current = current->prev;
+        }
+    }
+
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->next;
+    }
+    printf("\n");
+}
+struct Node *printFromEnd(struct Node *head) {
+    struct Node *current = head;
+
+    if(current->next != NULL) {  //jika current bukan last node, maka geser sampai last node
+        while(current->next != NULL) {
+            current = current->next;
+        }
+    }
+
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->prev;
+    }
+    printf("\n");
+}
 
 struct Node *insertFront(struct Node *head, int data) {
     struct Node *newNode = createNode(data);
@@ -68,14 +98,10 @@ int main() {
     // Create an empty list
     struct Node* head = NULL;
 
-    head = insertFront(head, 1);
-    head = insertAtPosition(head, 22, 2);
-    head = insertEnd(head, 3);
+    head = insertFront(head, 1);  //<-1->
+    head = insertAtPosition(head, 22, 2);  //<-1-><-22->
+    head = insertEnd(head, 3);  //<-1-><-22-><-3->
     
-    // Menampilkan data dalam linked list(dari depan)
-    struct Node *current = head;
-    while (current != NULL) {
-        printf("%d ", current->data);
-        current = current->next;
-    }
+    printFromFront(head);
+    printFromEnd(head);
 }
