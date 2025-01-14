@@ -4,7 +4,7 @@
 // Definisi struktur node
 struct Node {
     int data;
-    struct Node *next;  //utk memahaminya cek pointerPart4.c bagian nested struct
+    struct Node *next;  //utk memahaminya cek prerequisites > pointer > pointerPart4.c bagian nested struct
     //struct Node* next; (sama artinya dg yg atas)
 };
 

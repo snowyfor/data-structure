@@ -6,7 +6,7 @@ Alamat memori berfungsi untuk menentukan lokasi penyimpanan data pada memori (RA
 Kadang alamat memori ini disebut reference atau referensi.
 
 Pointer adalah sebuah variabel khusus yang berisi alamat memori.
-“Pointer berisi alamat memori”
+intinya “Pointer berisi alamat memori”
 */
 
 int *pointer1 = 00001;  // *pointer1 mengakses data yg ada pd alamat memori 00001
